@@ -1,10 +1,29 @@
+from test2 import color_nodes
+from test2 import color_nodes_2
 msgs_count = {}
 msgs_stalls = {}
 conflicts = []
+messageTypes = []
+graph = {}
 with open("./MSI.m") as f:
     lines = f.readlines()
 
     line_idx = 0
+
+    while(not "RevMurphi.MurphiModular.Types.Enums.SubEnums.GenMessageTypes" in lines[line_idx]):
+        line_idx += 1
+    
+    line_idx += 2
+
+    # Get all messages
+    while(not ";" in lines[line_idx]):
+        msg = lines[line_idx].strip()
+        if msg[-1] == ',':
+            msg = msg[:-1]
+        messageTypes.append(msg)
+        line_idx += 1
+
+    print(messageTypes)
 
     while(not "----RevMurphi.MurphiModular.StateMachines.GenMessageStateMachines" in lines[line_idx]):
         # print(i, lines[i])
@@ -32,7 +51,7 @@ with open("./MSI.m") as f:
 
                 if("case" in lines[i]):
                     incoming_msg = lines[i].strip()
-                    incoming_msg = incoming_msg[5:]
+                    incoming_msg = incoming_msg[5:-1]
                     print("incoming message: " + incoming_msg)
 
                     # statistics
@@ -99,3 +118,25 @@ print(conflicts)
 # for msg in msgs_stalls:
 #     print(msg + " " + str(msgs_stalls.get(msg)))
 # print(msgs_stalls)
+
+print ('-----------------------------------')
+for msg in messageTypes:
+    graph[msg] = []
+
+for (m1,m2) in conflicts:
+    if graph[m1] == []:
+        graph[m1] = [m2]
+    else:
+        graph[m1].append(m2)
+    
+    if graph[m2] == []:
+        graph[m2] = [m1]
+    else:
+        graph[m2].append(m1)
+
+for key in graph.keys():
+    print(key, graph[key])
+
+print(color_nodes(graph))
+print(color_nodes_2(graph))
+# print(graph)

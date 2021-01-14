@@ -1,5 +1,8 @@
+from test2 import color_nodes
+from test2 import color_nodes_2
 conflicts = []
 messageTypes = []
+graph = {}
 with open("./MSI.m") as f:
     lines = f.readlines()
 
@@ -13,7 +16,8 @@ with open("./MSI.m") as f:
     # Get all messages
     while(not ";" in lines[line_idx]):
         msg = lines[line_idx].strip()
-        msg = msg[:-1]
+        if msg[-1] == ',':
+            msg = msg[:-1]
         messageTypes.append(msg)
         line_idx += 1
 
@@ -93,3 +97,25 @@ with open("./MSI.m") as f:
 print("")
 print("number of conflicts: " + str(len(conflicts)))
 print(conflicts)
+
+print ('-----------------------------------')
+for msg in messageTypes:
+    graph[msg] = []
+
+for (m1,m2) in conflicts:
+    if graph[m1] == []:
+        graph[m1] = [m2]
+    else:
+        graph[m1].append(m2)
+    
+    if graph[m2] == []:
+        graph[m2] = [m1]
+    else:
+        graph[m2].append(m1)
+
+for key in graph.keys():
+    print(key, graph[key])
+
+print(color_nodes(graph))
+print(color_nodes_2(graph))
+# print(graph)
