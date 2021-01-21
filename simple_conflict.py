@@ -98,7 +98,7 @@ print("")
 print("number of conflicts: " + str(len(conflicts)))
 print(conflicts)
 
-print ('-----------------------------------')
+print ('----------Creating graph------------------')
 for msg in messageTypes:
     graph[msg] = []
 
@@ -116,6 +116,11 @@ for (m1,m2) in conflicts:
 for key in graph.keys():
     print(key, graph[key])
 
-print(color_nodes(graph))
-print(color_nodes_2(graph))
+coloredNodes = color_nodes_2(graph)
+# print(color_nodes(graph))
+print ('----------Network Assignment------------------')
+print(coloredNodes)
+
+print("Number of networks needed: ", max(coloredNodes.items())[1] + 1)
+
 # print(graph)
