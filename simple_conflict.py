@@ -91,7 +91,7 @@ with open("./MSI.m") as f:
                                 conflicts.append((m1, m2))
                                 conflictNum += 1
             
-            print("Number of conflict in state: " + str(conflictNum))
+            print("Number of new conflict in state: " + str(conflictNum))
 
 
 print("")
@@ -119,8 +119,19 @@ for key in graph.keys():
 coloredNodes = color_nodes_2(graph)
 # print(color_nodes(graph))
 print ('----------Network Assignment------------------')
-print(coloredNodes)
+# print(coloredNodes)
 
 print("Number of networks needed: ", max(coloredNodes.items())[1] + 1)
+
+networkAssignment = []
+for i in range(max(coloredNodes.items())[1] + 1):
+    networkK = []
+    for k in coloredNodes:
+        if coloredNodes[k] == i:
+            networkK.append(k)
+    networkAssignment.append(networkK)
+
+for i in range(len(networkAssignment)):
+    print("Messaages in network {}: {}".format(i, networkAssignment[i]))
 
 # print(graph)
