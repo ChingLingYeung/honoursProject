@@ -68,7 +68,7 @@ with open(file) as f:
                 if("msg := " in lines[i]):
                     outgoing_msg = lines[i]
                     outgoing_msg = outgoing_msg.split(',')[1]
-                    print("outgoing message: " + outgoing_msg)
+                    print("outgoing message: " + outgoing_msg + str(i))
                     if outgoing_msg not in outgoingMessages:
                         outgoingMessages.append(outgoing_msg)
                 if("Send" in lines[i]):
@@ -155,7 +155,9 @@ for (m1,m2) in newConflicts:
     dataBool1 = ("DL1C1" in m1) and ("Inv_Ack" in m2)
     dataBool2 = ("DL1C1" in m2) and ("Inv_Ack" in m1)
 
-    if(putAckBool or invBool or dataBool1 or dataBool2):
+    # constraintBool = ("InvL1C1" in m1 and "Fwd" in m2) or ("InvL1C1" in m2 and "Fwd" in m1)
+
+    if(putAckBool or invBool or dataBool1 or dataBool2): # or constraintBool
         conflict = False
 
     if(conflict):
