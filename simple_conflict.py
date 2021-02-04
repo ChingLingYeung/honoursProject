@@ -8,8 +8,10 @@ incomingMessages = []
 outgoingMessages = []
 graph = {}
 
-assert len(sys.argv[1:]) == 1, "Too many arguments"
+assert len(sys.argv[1:]) <= 2, "Too many arguments"
 file = sys.argv[1]
+if(len(sys.argv[1:]) == 2):
+    constraiantFile = sys.argv[2]
 
 with open(file) as f:
     lines = f.readlines()
@@ -123,6 +125,11 @@ for msg in messageTypes:
 
 count = 0
 newConflicts = []
+outOnly = []
+for msg in messageTypes:
+        if msg in outgoingMessages and msg not in incomingMessages:
+            outOnly.append(msg)
+
 for (m1, m2) in conflicts:
     count += 1
     conflicting = True
@@ -138,11 +145,16 @@ for (m1, m2) in conflicts:
             conflicting = False
             print("{}, {} not conflicting".format(m1, m2))
 
+    if m1 in outOnly or m2 in outOnly:
+        conflicting = False
+
     if conflicting:
         newConflicts.append((m1, m2))
 
 print("omitting incoming/outgoing non-conflicts: " + str(len(newConflicts)))
-assignNetwork(messageTypes, newConflicts)
+assignNetwork(incomingMessages, newConflicts)
+print("Outgoing Network")
+print(outOnly)
 # print(newConflicts)
 
 print("=========using addtional info from table===========")
@@ -164,7 +176,27 @@ for (m1,m2) in newConflicts:
         bookConflicts.append((m1, m2))
 print("Separating stall and 'grey' in book (theoretical): " + str(len(bookConflicts)))
 # print(bookConflicts)
-assignNetwork(messageTypes, bookConflicts)
+assignNetwork(incomingMessages, bookConflicts)
+print("Outgoing Network")
+print(outOnly)
+
+if len(sys.argv[1:]) == 2:
+    with open(constraiantFile) as f:
+        lines = f.readlines()
+        for line in lines:
+            pair = line.strip().replace(" ","").split(",")
+            if (pair[0], pair[1]) in bookConflicts:
+                rmvConflict = (pair[0], pair[1])
+                bookConflicts.remove(rmvConflict)
+            elif ((pair[1], pair[0]) in bookConflicts):
+                rmvConflict = (pair[1], pair[0])
+                bookConflicts.remove(rmvConflict)
+
+print("Applying constraints...")
+assignNetwork(incomingMessages, bookConflicts)
+print("Outgoing Network")
+print(outOnly)
+
 
 
 

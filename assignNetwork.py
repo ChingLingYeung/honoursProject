@@ -27,7 +27,7 @@ def assignNetwork(nodes, conflictList):
     # print(coloredNodes)
     networkNum = max(coloredNodes.values()) + 1
 
-    print("Number of networks needed: ", networkNum)
+    print("Number of networks needed: ", networkNum + 1)
 
     networkAssignment = []
     for i in range(networkNum):
