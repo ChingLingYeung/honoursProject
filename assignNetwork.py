@@ -1,6 +1,7 @@
 from test2 import color_nodes
 from test2 import color_nodes_2
-def assignNetwork(nodes, conflictList):
+from graphColouring import graphColouring
+def assignNetwork(nodes, conflictList, constraints=[]):
     conflictGraph = {}
     messageTypes = nodes
     print ('----------Creating graph------------------')
@@ -21,7 +22,7 @@ def assignNetwork(nodes, conflictList):
     for key in conflictGraph.keys():
         print(key, conflictGraph[key])
 
-    coloredNodes = color_nodes(conflictGraph)
+    coloredNodes = graphColouring(conflictGraph, constraints)
     # print(color_nodes(graph))
     print ('----------Network Assignment------------------')
     # print(coloredNodes)

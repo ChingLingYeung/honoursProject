@@ -15,12 +15,10 @@ if(len(sys.argv[1:]) == 2):
 
 with open(file) as f:
     lines = f.readlines()
-
     line_idx = 0
 
     while(not "RevMurphi.MurphiModular.Types.Enums.SubEnums.GenMessageTypes" in lines[line_idx]):
         line_idx += 1
-    
     line_idx += 2
 
     # Get all messages
@@ -38,24 +36,19 @@ with open(file) as f:
         line_idx += 1
 
     for i in range(line_idx, len(lines)):
-
         #find switch cbe.State then find inmsg.mtype
-
         if ("case cache" in lines[i]): #don't need to check directory or "case directory" in lines[i]
             print("state: " + lines[i].strip())
             i += 1
 
             incoming = False
-
             prev_message = ""
-
             msg_types = {}
 
             for msgType in messageTypes:
                 msg_types[msgType] = "stall"
 
             while(not "endswitch;" in lines[i]):
-
                 if("case" in lines[i]):
                     incoming_msg = lines[i].strip()
                     incoming_msg = incoming_msg[5:-1]
@@ -73,9 +66,9 @@ with open(file) as f:
                     print("outgoing message: " + outgoing_msg + str(i))
                     if outgoing_msg not in outgoingMessages:
                         outgoingMessages.append(outgoing_msg)
+
                 if("Send" in lines[i]):
                     incoming = False
-
                 i += 1
 
             print("finished messages for this state")
@@ -84,7 +77,6 @@ with open(file) as f:
             print("all messages:")
             print(msg_types)
             keys = list(msg_types.keys())
-
             conflictNum = 0
 
             if len(keys) > 1:
@@ -114,16 +106,12 @@ for msg in messageTypes:
 print("original conflicts: " + str(len(conflicts)))
 assignNetwork(messageTypes, conflicts)
 print("")
-print(messageTypes)
-print("INCOMING")
-print(incomingMessages)
-print("OUTGOING")
-print(outgoingMessages)
+print("INCOMING {}".format(incomingMessages))
+print("OUTGOING {}".format(outgoingMessages))
 for msg in messageTypes:
     if (msg in incomingMessages and msg in outgoingMessages):
         print(msg)
-
-count = 0
+print("\n")
 newConflicts = []
 outOnly = []
 for msg in messageTypes:
@@ -131,19 +119,7 @@ for msg in messageTypes:
             outOnly.append(msg)
 
 for (m1, m2) in conflicts:
-    count += 1
     conflicting = True
-
-    m1Type = (m1 in incomingMessages) ^ (m1 in outgoingMessages)
-    m2Type = (m2 in incomingMessages) ^ (m2 in outgoingMessages)
-
-    if(m1Type and m2Type):
-        m1Inc = m1 in incomingMessages
-        m2Inc = m2 in incomingMessages
-
-        if((m1 in incomingMessages) ^ (m2 in incomingMessages)):
-            conflicting = False
-            print("{}, {} not conflicting".format(m1, m2))
 
     if m1 in outOnly or m2 in outOnly:
         conflicting = False
@@ -151,49 +127,36 @@ for (m1, m2) in conflicts:
     if conflicting:
         newConflicts.append((m1, m2))
 
-print("omitting incoming/outgoing non-conflicts: " + str(len(newConflicts)))
-assignNetwork(incomingMessages, newConflicts)
-print("Outgoing Network")
-print(outOnly)
-# print(newConflicts)
+print("omitting incoming/outgoing non-conflicts: {} conflicts left".format(str(len(newConflicts))))
+print("=========Applying constraints...===========")
+#putAckBool = ("Put_Ack" in m1) or ("Put_Ack" in m2)
+#invBool = ("Inv" in m1) and ("Inv" in m2)
+#dataBool1 = ("DL1C1" in m1) and ("Inv_Ack" in m2)
+#dataBool2 = ("DL1C1" in m2) and ("Inv_Ack" in m1)
 
-print("=========using addtional info from table===========")
-bookConflicts = []
-for (m1,m2) in newConflicts:
-    conflict = True
-    #putack and fwd
-    putAckBool = ("Put_Ack" in m1) or ("Put_Ack" in m2)
-    invBool = ("Inv" in m1) and ("Inv" in m2)
-    dataBool1 = ("DL1C1" in m1) and ("Inv_Ack" in m2)
-    dataBool2 = ("DL1C1" in m2) and ("Inv_Ack" in m1)
-
-    # constraintBool = ("InvL1C1" in m1 and "Fwd" in m2) or ("InvL1C1" in m2 and "Fwd" in m1)
-
-    if(putAckBool or invBool or dataBool1 or dataBool2): # or constraintBool
-        conflict = False
-
-    if(conflict):
-        bookConflicts.append((m1, m2))
-print("Separating stall and 'grey' in book (theoretical): " + str(len(bookConflicts)))
-# print(bookConflicts)
-assignNetwork(incomingMessages, bookConflicts)
-print("Outgoing Network")
-print(outOnly)
-
+netConstraint = []
 if len(sys.argv[1:]) == 2:
     with open(constraiantFile) as f:
         lines = f.readlines()
         for line in lines:
-            pair = line.strip().replace(" ","").split(",")
-            if (pair[0], pair[1]) in bookConflicts:
-                rmvConflict = (pair[0], pair[1])
-                bookConflicts.remove(rmvConflict)
-            elif ((pair[1], pair[0]) in bookConflicts):
-                rmvConflict = (pair[1], pair[0])
-                bookConflicts.remove(rmvConflict)
+            if line[0] == '[':
+                sameNet = line[1:-1].replace(" ", "").split(",")
+                for m1 in sameNet:
+                    for m2 in sameNet:
+                        rmvConflict = (m1, m2)
+                        if rmvConflict in newConflicts:
+                            newConflicts.remove(rmvConflict)
+                netConstraint.append(sameNet)
+            else:
+                pair = line.strip().replace(" ","").split(",")
+                if (pair[0], pair[1]) in newConflicts:
+                    rmvConflict = (pair[0], pair[1])
+                    newConflicts.remove(rmvConflict)
+                elif ((pair[1], pair[0]) in newConflicts):
+                    rmvConflict = (pair[1], pair[0])
+                    newConflicts.remove(rmvConflict)
 
-print("Applying constraints...")
-assignNetwork(incomingMessages, bookConflicts)
+assignNetwork(incomingMessages, newConflicts, netConstraint)
 print("Outgoing Network")
 print(outOnly)
 
