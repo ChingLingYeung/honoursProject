@@ -63,7 +63,7 @@ with open(file) as f:
                 if("msg := " in lines[i]):
                     outgoing_msg = lines[i]
                     outgoing_msg = outgoing_msg.split(',')[1]
-                    print("outgoing message: " + outgoing_msg + str(i))
+                    print("outgoing message: " + outgoing_msg)
                     if outgoing_msg not in outgoingMessages:
                         outgoingMessages.append(outgoing_msg)
 
@@ -89,11 +89,11 @@ with open(file) as f:
                         m2_type = msg_types[m2]
 
                         if(m1_type != m2_type):
-                            print("conflict found")
-                            print("m1 " + m1)
-                            print("m2 " + m2)
+                            # print("conflict found")
+                            # print("m1 " + m1)
+                            # print("m2 " + m2)
                             if(not (m1,m2) in conflicts and not (m2,m1) in conflicts):
-                                print("appending")
+                                print("appending {} {}".format(m1, m2))
                                 conflicts.append((m1, m2))
                                 conflictNum += 1
             
@@ -108,6 +108,7 @@ assignNetwork(messageTypes, conflicts)
 print("")
 print("INCOMING {}".format(incomingMessages))
 print("OUTGOING {}".format(outgoingMessages))
+print("BOTH")
 for msg in messageTypes:
     if (msg in incomingMessages and msg in outgoingMessages):
         print(msg)
@@ -128,7 +129,6 @@ for (m1, m2) in conflicts:
         newConflicts.append((m1, m2))
 
 print("omitting incoming/outgoing non-conflicts: {} conflicts left".format(str(len(newConflicts))))
-print("=========Applying constraints...===========")
 #putAckBool = ("Put_Ack" in m1) or ("Put_Ack" in m2)
 #invBool = ("Inv" in m1) and ("Inv" in m2)
 #dataBool1 = ("DL1C1" in m1) and ("Inv_Ack" in m2)
@@ -136,6 +136,7 @@ print("=========Applying constraints...===========")
 
 netConstraint = []
 if len(sys.argv[1:]) == 2:
+    print("=========Applying constraints...===========")
     with open(constraiantFile) as f:
         lines = f.readlines()
         for line in lines:
@@ -155,7 +156,7 @@ if len(sys.argv[1:]) == 2:
                 elif ((pair[1], pair[0]) in newConflicts):
                     rmvConflict = (pair[1], pair[0])
                     newConflicts.remove(rmvConflict)
-
+print("Final number of conflicts: {}".format(len(newConflicts)))
 assignNetwork(incomingMessages, newConflicts, netConstraint)
 print("Outgoing Network")
 print(outOnly)

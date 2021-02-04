@@ -1,0 +1,20 @@
+GetSL1C1, Put_AckL1C1
+GetML1C1, Put_AckL1C1
+PutSL1C1, Put_AckL1C1
+Inv_AckL1C1, Put_AckL1C1
+GetM_Ack_DL1C1, Put_AckL1C1
+GetS_AckL1C1, Put_AckL1C1
+WBL1C1, Put_AckL1C1
+PutML1C1, Put_AckL1C1
+GetM_Ack_ADL1C1, Put_AckL1C1
+InvL1C1, Put_AckL1C1
+Fwd_GetSL1C1, Put_AckL1C1
+Fwd_GetML1C1, Put_AckL1C1
+Inv_AckL1C1, InvL1C1
+GetM_Ack_DL1C1, Inv_AckL1C1
+GetS_AckL1C1, Inv_AckL1C1
+GetM_Ack_ADL1C1, Inv_AckL1C1
+GetS_AckL1C1, GetM_Ack_ADL1C1
+GetS_AckL1C1, GetM_Ack_DL1C1
+GetM_Ack_ADL1C1, GetM_Ack_DL1C1
+[Put_AckL1C1, Fwd_GetSL1C1, Fwd_GetML1C1, InvL1C1]
