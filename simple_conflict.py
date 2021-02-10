@@ -10,6 +10,7 @@ incomingMessages = []
 outgoingMessages = []
 stableStates = []
 graph = {}
+G = nx.MultiDiGraph()
 
 assert len(sys.argv[1:]) <= 2, "Too many arguments"
 file = sys.argv[1]
@@ -68,7 +69,7 @@ with open(file) as f:
     for i in range(line_idx, len(lines)):
         #find switch cbe.State then find inmsg.mtype
         if ("case cache" in lines[i]): #don't need to check directory or "case directory" in lines[i]
-            inState = lines[i].strip()[5:]
+            inState = lines[i].strip()[5:-1]
             outState = ""
             edge = ""
 
@@ -106,7 +107,9 @@ with open(file) as f:
                     incoming = False
 
                 if "cbe.State :=" in lines[i]:
-                    outState = lines[i].strip()[13:]
+                    outState = lines[i].strip()[13:-1]
+                    key = G.add_edge(inState, outState, edge)
+                    G.edges[inState, outState, edge]["message"] = edge
                     print(outState)
                 i += 1
 
@@ -201,7 +204,7 @@ print("Outgoing Network")
 print(outOnly)
 
 print(stableStates)
-
+print(G.edges)
 
 
 # print(incomingMessages)
