@@ -176,6 +176,23 @@ print("omitting incoming/outgoing non-conflicts: {} conflicts left".format(str(l
 #dataBool1 = ("DL1C1" in m1) and ("Inv_Ack" in m2)
 #dataBool2 = ("DL1C1" in m2) and ("Inv_Ack" in m1)
 
+#get gray from trace here
+for n1 in G.nodes:
+    print(n1)
+    for n2 in stableStates:
+        possibleMsgs = []
+        greyMsgs = []
+        paths = nx.all_simple_edge_paths(G, n1, n2)
+        for path in paths:
+            print(path)
+            for inS, outS, edge in path:
+                if edge not in possibleMsgs:
+                    possibleMsgs.append(edge)
+        for msg in incomingMessages:
+            if msg not in possibleMsgs:
+                greyMsgs.append(msg)
+        print("Grey messages: {}".format(greyMsgs))
+
 netConstraint = []
 if len(sys.argv[1:]) == 2:
     print("=========Applying constraints...===========")
@@ -204,7 +221,7 @@ print("Outgoing Network")
 print(outOnly)
 
 print(stableStates)
-print(G.edges)
+# print(G.edges)
 
 
 # print(incomingMessages)
