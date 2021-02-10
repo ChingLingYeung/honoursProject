@@ -1,11 +1,14 @@
 import sys
+import networkx as nx
 from test2 import color_nodes
 from test2 import color_nodes_2
 from assignNetwork import assignNetwork
+
 conflicts = []
 messageTypes = []
 incomingMessages = []
 outgoingMessages = []
+stableStates = []
 graph = {}
 
 assert len(sys.argv[1:]) <= 2, "Too many arguments"
@@ -31,6 +34,33 @@ with open(file) as f:
 
     print(messageTypes)
 
+    while(not "RevMurphi.MurphiModular.Types.Enums.SubEnums.GenArchEnums" in lines[line_idx]):
+        line_idx += 1
+    line_idx += 2
+
+    #get stable states
+    cacheStates = []
+    while not "directory" in lines[line_idx]:
+        state = lines[line_idx].strip().replace("cache", "")
+        if len(state) == 0:
+            line_idx += 1
+            continue
+        if state[-1] == ',':
+            state = state[:-1]
+        cacheStates.append(state)
+        line_idx += 1
+    
+    line_idx += 1
+    while not ";" in lines[line_idx]:
+        state = lines[line_idx].strip().replace("directory", "")
+        if state[-1] == ',':
+            state = state[:-1]
+        if state in cacheStates:
+            stableStates.append("cache" + state)
+        line_idx += 1
+
+
+    #find and parse state machines
     while(not "----RevMurphi.MurphiModular.StateMachines.GenMessageStateMachines" in lines[line_idx]):
         # print(i, lines[i])
         line_idx += 1
@@ -38,7 +68,11 @@ with open(file) as f:
     for i in range(line_idx, len(lines)):
         #find switch cbe.State then find inmsg.mtype
         if ("case cache" in lines[i]): #don't need to check directory or "case directory" in lines[i]
-            print("state: " + lines[i].strip())
+            inState = lines[i].strip()[5:]
+            outState = ""
+            edge = ""
+
+            print("state: " + inState)
             i += 1
 
             incoming = False
@@ -52,6 +86,7 @@ with open(file) as f:
                 if("case" in lines[i]):
                     incoming_msg = lines[i].strip()
                     incoming_msg = incoming_msg[5:-1]
+                    edge = incoming_msg
                     print("incoming message: " + incoming_msg)
                     if incoming_msg not in incomingMessages:
                         incomingMessages.append(incoming_msg)
@@ -69,6 +104,10 @@ with open(file) as f:
 
                 if("Send" in lines[i]):
                     incoming = False
+
+                if "cbe.State :=" in lines[i]:
+                    outState = lines[i].strip()[13:]
+                    print(outState)
                 i += 1
 
             print("finished messages for this state")
@@ -161,6 +200,7 @@ assignNetwork(incomingMessages, newConflicts, netConstraint)
 print("Outgoing Network")
 print(outOnly)
 
+print(stableStates)
 
 
 

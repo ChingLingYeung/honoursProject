@@ -28,7 +28,7 @@ def assignNetwork(nodes, conflictList, constraints=[]):
     # print(coloredNodes)
     networkNum = max(coloredNodes.values()) + 1
 
-    print("Number of networks needed: ", networkNum + 1)
+    print("Number of networks needed: ", networkNum)
 
     networkAssignment = []
     for i in range(networkNum):
