@@ -175,23 +175,81 @@ print("omitting incoming/outgoing non-conflicts: {} conflicts left".format(str(l
 #invBool = ("Inv" in m1) and ("Inv" in m2)
 #dataBool1 = ("DL1C1" in m1) and ("Inv_Ack" in m2)
 #dataBool2 = ("DL1C1" in m2) and ("Inv_Ack" in m1)
-
+print("newConflicts Length {}".format(len(newConflicts)))
+falseConflict = {}
+for con in newConflicts:
+    falseConflict[con] = True
 #get gray from trace here
 for n1 in G.nodes:
     print(n1)
     for n2 in stableStates:
+        print("\nState {} to state {}".format(n1, n2))
         possibleMsgs = []
         greyMsgs = []
         paths = nx.all_simple_edge_paths(G, n1, n2)
         for path in paths:
-            print(path)
+            print("path: {}".format(path))
+            pathLen = len(path)
             for inS, outS, edge in path:
+                print("possible msg {}".format(edge))
                 if edge not in possibleMsgs:
                     possibleMsgs.append(edge)
+                # if outS in stableStates and not inS,OutS,edge == 
         for msg in incomingMessages:
             if msg not in possibleMsgs:
+                # if (n1, msg) in falseConflict:
+                #     falseConflict[n1,msg] = falseConflict[n1,msg] and True
+                # elif (msg, n1) in falseConflict:
+                #     falseConflict[msg, n1] = falseConflict[msg, n1] and True
                 greyMsgs.append(msg)
         print("Grey messages: {}".format(greyMsgs))
+
+        paths = nx.all_simple_edge_paths(G, n1, n2)
+        for path in paths:
+            # for inS, outS, pm1 in path:
+            inS, outS, pm1 = path[0]
+            print("pm1 {}".format(pm1))
+            print("possibleMessages {}".format(possibleMsgs))
+            for pm2 in possibleMsgs:
+                if (pm1, pm2) in newConflicts:
+                    falseConflict[(pm1, pm2)] = False
+                    print("True conflict {} {}".format(pm1, pm2))
+                elif (pm2, pm1) in newConflicts:
+                    falseConflict[(pm2, pm1)] = False
+                    print("True conflict {} {}".format(pm2, pm1))
+
+        # paths = nx.all_simple_edge_paths(G, n1, n2)
+        # for path in paths:
+        #     # for inS, outS, pm1 in path:
+        #     inS, outS, pMsg = path[0]
+        #     for gMsg in greyMsgs:
+        #         if (gMsg, pMsg) in newConflicts:
+        #             falseConflict[(gMsg, pMsg)] = falseConflict[(gMsg, pMsg)] and True
+        #         elif (pMsg, gMsg) in newConflicts:
+        #             falseConflict[(pMsg, gMsg)] = falseConflict[(pMsg, gMsg)] and True
+
+
+        for gMsg in greyMsgs:
+            for pMsg in messageTypes:
+                if (gMsg, pMsg) in newConflicts:
+                    print("False conflict {} {}".format(gMsg, pMsg))
+                    falseConflict[(gMsg, pMsg)] = falseConflict[(gMsg, pMsg)] and True
+                elif (pMsg, gMsg) in newConflicts:
+                    print("False conflict {} {}".format(gMsg, pMsg))
+                    falseConflict[(pMsg, gMsg)] = falseConflict[(pMsg, gMsg)] and True
+
+
+
+
+
+print(falseConflict)
+
+for k in falseConflict.keys():
+    if falseConflict[k] == True:
+        newConflicts.remove(k)
+        print("removed conflict {}".format(k))
+    else:
+        print("true conflict {}".format(k))
 
 netConstraint = []
 if len(sys.argv[1:]) == 2:
@@ -220,7 +278,7 @@ assignNetwork(incomingMessages, newConflicts, netConstraint)
 print("Outgoing Network")
 print(outOnly)
 
-print(stableStates)
+# print(stableStates)
 # print(G.edges)
 
 
