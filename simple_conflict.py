@@ -1,7 +1,5 @@
 import sys
 import networkx as nx
-from test2 import color_nodes
-from test2 import color_nodes_2
 from assignNetwork import assignNetwork
 
 conflicts = []
@@ -131,9 +129,6 @@ with open(file) as f:
                         m2_type = msg_types[m2]
 
                         if(m1_type != m2_type):
-                            # print("conflict found")
-                            # print("m1 " + m1)
-                            # print("m2 " + m2)
                             if(not (m1,m2) in conflicts and not (m2,m1) in conflicts):
                                 print("appending {} {}".format(m1, m2))
                                 conflicts.append((m1, m2))
@@ -171,10 +166,6 @@ for (m1, m2) in conflicts:
         newConflicts.append((m1, m2))
 
 print("omitting incoming/outgoing non-conflicts: {} conflicts left".format(str(len(newConflicts))))
-#putAckBool = ("Put_Ack" in m1) or ("Put_Ack" in m2)
-#invBool = ("Inv" in m1) and ("Inv" in m2)
-#dataBool1 = ("DL1C1" in m1) and ("Inv_Ack" in m2)
-#dataBool2 = ("DL1C1" in m2) and ("Inv_Ack" in m1)
 print("newConflicts Length {}".format(len(newConflicts)))
 falseConflict = {}
 for con in newConflicts:
@@ -262,73 +253,3 @@ print("Final number of conflicts: {}".format(len(newConflicts)))
 assignNetwork(incomingMessages, newConflicts, netConstraint)
 print("Outgoing Network")
 print(outOnly)
-
-# print(stableStates)
-# print(G.edges)
-
-
-# print(incomingMessages)
-# print(outgoingMessages)
-# for msg in messageTypes:
-#     if (msg in incomingMessages and msg in outgoingMessages):
-#         print(msg)
-
-
-# write result to new file
-# new_file = ("new" + file)
-# with open(file) as f:
-#     line_idx = 0
-#     lines = f.readlines()
-#     with open(new_file, "w") as f1:
-#         line = lines[line_idx]
-#         while(not "--RevMurphi.MurphiModular.GenVars" in line):
-#             f1.write(line)
-#             line_idx += 1
-#             line = lines[line_idx]
-#         f1.write(line)
-#         line_idx += 1
-#         line = lines[line_idx]
-        
-#         for i in range(networkNum):
-#             f1.write("      network_{}: NET_Ordered;\n".format(i))
-#             f1.write("      cnt_network_{}: NET_Ordered_cnt;\n".format(i))
-        
-#         f1.write("\n")
-
-#         for i in range(networkNum):
-#             f1.write("      buf_network_{}: NET_FIFO;\n".format(i))
-
-#         f1.write("\n")
-
-#         while(not "g_access: Access_Machine;" in line):
-#             line_idx += 1
-#             line = lines[line_idx]
-
-#         while(not "procedure Reset_buf_();" in line):
-#             f1.write(line)
-#             line_idx += 1
-#             line = lines[line_idx]
-
-#         f1.write(lines[line_idx])
-#         line_idx += 1
-#         line = lines[line_idx]
-#         f1.write(lines[line_idx])
-
-#         for i in range(networkNum):
-#             f1.write("      for i:Machines do\n")
-#             f1.write("        undefine buf_network_{}[i].Queue;\n".format(i))
-#             f1.write("        buf_network_{}[i].QueueInd:=0;\n".format(i))
-#             f1.write("      endfor;\n")
-#             f1.write("\n")
-        
-#         f1.write("\n    end;")
-
-#         while(not "----RevMurphi.MurphiModular.Functions.GenNetworkFunc" in line):
-#             line_idx += 1
-#             line = lines[line_idx]
-
-#         f1.write("\n\n\n" + line)
-#         line_idx += 1
-
-
-# print(graph)
