@@ -173,40 +173,97 @@ for con in newConflicts:
 
 #get gray from trace here
 def enumNode(node):
-    posMsg = []
+    posMsg = set()
     print(node)
     if node in stableStates:
         print("base case")
         out_edges = G.out_edges(node)
         for out_edge in out_edges:
             outMsg = G.get_edge_data(out_edge[0], out_edge[1]).keys()
-            for oMsg in outMsg:
-                posMsg.append(oMsg)
-        return(set(posMsg))
+            print(outMsg)
+            for msg in outMsg:
+                posMsg.add(msg)
+        print("returning {}".format(posMsg))
+        return posMsg
+    else:
+        out_edges = G.out_edges(node)
+        # print(node, out_edges)
+        for out_edge in out_edges:
+            curOutMsg = G.get_edge_data(out_edge[0], out_edge[1]).keys()
+            # for msg in curOutMsg:
+            #     posMsg.append(msg)
+            if not out_edge[0] == out_edge[1]:
+                nxt_out_edges = G.out_edges(out_edge[1])
+                for oEdge in nxt_out_edges:
+                    nxt_Msgs = G.get_edge_data(oEdge[0], oEdge[1]).keys()
+                    for msg in nxt_Msgs:
+                        posMsg.add(msg)
 
-    out_edges = G.out_edges(node)
-    # print(node, out_edges)
-    for out_edge in out_edges:
-        curOutMsg = G.get_edge_data(out_edge[0], out_edge[1]).keys()
-        for msg in curOutMsg:
-            posMsg.append(msg)
-        if not out_edge[0] == out_edge[1]:
-            nextOutMsg = enumNode(out_edge[1])
-            for msg in nextOutMsg:
-                posMsg.append(msg)
-    #     print(out_edge, outMsg)
-    # print()
-    return set(posMsg)
+                # for msg in curOutMsg:
+                #     posMsg.add(msg)
+
+                print("NEXT state {}".format(out_edge[1]))
+                nextOutMsg = enumNode(out_edge[1])
+                for msg in nextOutMsg:
+                    print("ADDING {}".format(msg))
+                    posMsg.add(msg)
+            else:
+                print("ADDING {}".format(curOutMsg))
+                for msg in curOutMsg:
+                    posMsg.add(msg)
+            # else:
+            #     posMsg.append(next(iter(curOutMsg)))
+        #     print(out_edge, outMsg)
+        # print()
+        print("returning {}".format(posMsg))
+        return posMsg
 
 for n1 in G.nodes:
     print("start node: {}".format(n1))
+
+    # if n1 in stableStates:
+    #     continue
+
     possibleMsgs = enumNode(n1)
-    print(possibleMsgs)
-    greyMsgs = []
+    print("POSSIBLE for {}: {}".format(n1, possibleMsgs))
+    currentMsgs = set()
+
+    out_edges = G.out_edges(n1)
+    # print(len(out_edges))
+    for out_edge in out_edges:
+        curOutMsg = G.get_edge_data(out_edge[0], out_edge[1]).keys()
+        for msg in curOutMsg:
+            currentMsgs.add(msg)
+    # print(possibleMsgs)
+    print("current msgs for {}: {}".format(n1, currentMsgs))
+
+    # if n1 not in stableStates:
+    nxtN = G.successors(n1)
+    for n in nxtN:
+        # if n == n1:
+            # continue
+        print("next node: {}".format(n))
+        nxtOut = G.out_edges(n)
+        for nxtOutEdge in nxtOut:
+            nxtOutMsg = G.get_edge_data(nxtOutEdge[0], nxtOutEdge[1]).keys()
+            print(nxtOutMsg)
+            for msg in nxtOutMsg:
+                if msg in currentMsgs:
+                    if msg in possibleMsgs:
+                        print("REMOVE {}".format(msg))
+                        possibleMsgs.remove(msg)
+    # greyMsgs = []
+
+    # for msg in currentMsgs:
+    #     if msg in possibleMsgs:
+    #         possibleMsgs.remove(msg)
+    #         print("{} can be received now".format(msg))
     # for msg in incomingMessages:
     #     if msg not in possibleMsgs:
     #         greyMsgs.append(msg)
-    for pm1 in possibleMsgs:
+    print("nonstall for state {}: {}".format(n1, currentMsgs))
+    print("stall for state {}: {}".format(n1, possibleMsgs))
+    for pm1 in currentMsgs:
         for pm2 in possibleMsgs:
             if (pm1, pm2) in newConflicts:
                 falseConflict[(pm1, pm2)] = False
@@ -252,4 +309,4 @@ if len(sys.argv[1:]) == 2:
 print("Final number of conflicts: {}".format(len(newConflicts)))
 assignNetwork(incomingMessages, newConflicts, netConstraint)
 print("Outgoing Network")
-print(outOnly)
+print(outgoingMessages)

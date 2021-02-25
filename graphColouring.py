@@ -11,7 +11,8 @@ def graphColouring(graph, constraints):
         if node in constraint:
             for constNode in constraint:
                 if constNode in color_map:
-                    color_map[node] = color_map[constNode]
+                    for cNode in constraint:
+                      color_map[cNode] = color_map[constNode]
     if node in color_map:
         continue
     for neighbor in graph[node]:
