@@ -1,0 +1,711 @@
+['GetSL1C1', 'GetML1C1', 'PutSL1C1', 'Inv_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'WBL1C1', 'PutML1C1', 'PutEL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1', 'Put_AckL1C1', 'Fwd_GetSL1C1', 'Fwd_GetML1C1']
+state: cacheL1C1_E
+incoming message: Fwd_GetML1C1
+outgoing message: GetM_Ack_DL1C1
+cacheL1C1_I
+incoming message: Fwd_GetSL1C1
+outgoing message: GetS_AckL1C1
+outgoing message: WBL1C1
+cacheL1C1_S
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'stall', 'GetM_Ack_DL1C1': 'stall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'stall', 'InvL1C1': 'stall', 'Put_AckL1C1': 'stall', 'Fwd_GetSL1C1': 'nonstall', 'Fwd_GetML1C1': 'nonstall'}
+appending GetSL1C1 Fwd_GetSL1C1
+appending GetSL1C1 Fwd_GetML1C1
+appending GetML1C1 Fwd_GetSL1C1
+appending GetML1C1 Fwd_GetML1C1
+appending PutSL1C1 Fwd_GetSL1C1
+appending PutSL1C1 Fwd_GetML1C1
+appending Inv_AckL1C1 Fwd_GetSL1C1
+appending Inv_AckL1C1 Fwd_GetML1C1
+appending GetM_Ack_DL1C1 Fwd_GetSL1C1
+appending GetM_Ack_DL1C1 Fwd_GetML1C1
+appending GetS_AckL1C1 Fwd_GetSL1C1
+appending GetS_AckL1C1 Fwd_GetML1C1
+appending WBL1C1 Fwd_GetSL1C1
+appending WBL1C1 Fwd_GetML1C1
+appending PutML1C1 Fwd_GetSL1C1
+appending PutML1C1 Fwd_GetML1C1
+appending PutEL1C1 Fwd_GetSL1C1
+appending PutEL1C1 Fwd_GetML1C1
+appending GetM_Ack_ADL1C1 Fwd_GetSL1C1
+appending GetM_Ack_ADL1C1 Fwd_GetML1C1
+appending InvL1C1 Fwd_GetSL1C1
+appending InvL1C1 Fwd_GetML1C1
+appending Put_AckL1C1 Fwd_GetSL1C1
+appending Put_AckL1C1 Fwd_GetML1C1
+Number of new conflict in state: 24
+state: cacheL1C1_E_evict
+incoming message: Fwd_GetML1C1
+outgoing message: GetM_Ack_DL1C1
+cacheL1C1_I_x_E_evict
+incoming message: Fwd_GetSL1C1
+outgoing message: GetS_AckL1C1
+outgoing message: WBL1C1
+cacheL1C1_S_evict
+incoming message: Put_AckL1C1
+cacheL1C1_I
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'stall', 'GetM_Ack_DL1C1': 'stall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'stall', 'InvL1C1': 'stall', 'Put_AckL1C1': 'nonstall', 'Fwd_GetSL1C1': 'nonstall', 'Fwd_GetML1C1': 'nonstall'}
+appending GetSL1C1 Put_AckL1C1
+appending GetML1C1 Put_AckL1C1
+appending PutSL1C1 Put_AckL1C1
+appending Inv_AckL1C1 Put_AckL1C1
+appending GetM_Ack_DL1C1 Put_AckL1C1
+appending GetS_AckL1C1 Put_AckL1C1
+appending WBL1C1 Put_AckL1C1
+appending PutML1C1 Put_AckL1C1
+appending PutEL1C1 Put_AckL1C1
+appending GetM_Ack_ADL1C1 Put_AckL1C1
+appending InvL1C1 Put_AckL1C1
+Number of new conflict in state: 11
+state: cacheL1C1_I
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'stall', 'GetM_Ack_DL1C1': 'stall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'stall', 'InvL1C1': 'stall', 'Put_AckL1C1': 'stall', 'Fwd_GetSL1C1': 'stall', 'Fwd_GetML1C1': 'stall'}
+Number of new conflict in state: 0
+state: cacheL1C1_I_load
+incoming message: GetM_Ack_DL1C1
+cacheL1C1_E
+incoming message: GetS_AckL1C1
+cacheL1C1_S
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'stall', 'GetM_Ack_DL1C1': 'nonstall', 'GetS_AckL1C1': 'nonstall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'stall', 'InvL1C1': 'stall', 'Put_AckL1C1': 'stall', 'Fwd_GetSL1C1': 'stall', 'Fwd_GetML1C1': 'stall'}
+appending GetSL1C1 GetM_Ack_DL1C1
+appending GetSL1C1 GetS_AckL1C1
+appending GetML1C1 GetM_Ack_DL1C1
+appending GetML1C1 GetS_AckL1C1
+appending PutSL1C1 GetM_Ack_DL1C1
+appending PutSL1C1 GetS_AckL1C1
+appending Inv_AckL1C1 GetM_Ack_DL1C1
+appending Inv_AckL1C1 GetS_AckL1C1
+appending GetM_Ack_DL1C1 WBL1C1
+appending GetM_Ack_DL1C1 PutML1C1
+appending GetM_Ack_DL1C1 PutEL1C1
+appending GetM_Ack_DL1C1 GetM_Ack_ADL1C1
+appending GetM_Ack_DL1C1 InvL1C1
+appending GetS_AckL1C1 WBL1C1
+appending GetS_AckL1C1 PutML1C1
+appending GetS_AckL1C1 PutEL1C1
+appending GetS_AckL1C1 GetM_Ack_ADL1C1
+appending GetS_AckL1C1 InvL1C1
+Number of new conflict in state: 18
+state: cacheL1C1_I_store
+incoming message: GetM_Ack_ADL1C1
+cacheL1C1_M
+cacheL1C1_I_store_GetM_Ack_AD
+incoming message: GetM_Ack_DL1C1
+cacheL1C1_M
+incoming message: Inv_AckL1C1
+cacheL1C1_I_store
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'nonstall', 'GetM_Ack_DL1C1': 'nonstall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'nonstall', 'InvL1C1': 'stall', 'Put_AckL1C1': 'stall', 'Fwd_GetSL1C1': 'stall', 'Fwd_GetML1C1': 'stall'}
+appending GetSL1C1 Inv_AckL1C1
+appending GetSL1C1 GetM_Ack_ADL1C1
+appending GetML1C1 Inv_AckL1C1
+appending GetML1C1 GetM_Ack_ADL1C1
+appending PutSL1C1 Inv_AckL1C1
+appending PutSL1C1 GetM_Ack_ADL1C1
+appending Inv_AckL1C1 WBL1C1
+appending Inv_AckL1C1 PutML1C1
+appending Inv_AckL1C1 PutEL1C1
+appending Inv_AckL1C1 InvL1C1
+appending GetM_Ack_DL1C1 GetS_AckL1C1
+appending WBL1C1 GetM_Ack_ADL1C1
+appending PutML1C1 GetM_Ack_ADL1C1
+appending PutEL1C1 GetM_Ack_ADL1C1
+appending GetM_Ack_ADL1C1 InvL1C1
+Number of new conflict in state: 15
+state: cacheL1C1_I_store_GetM_Ack_AD
+incoming message: Inv_AckL1C1
+cacheL1C1_M
+cacheL1C1_I_store_GetM_Ack_AD
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'nonstall', 'GetM_Ack_DL1C1': 'stall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'stall', 'InvL1C1': 'stall', 'Put_AckL1C1': 'stall', 'Fwd_GetSL1C1': 'stall', 'Fwd_GetML1C1': 'stall'}
+appending Inv_AckL1C1 GetM_Ack_ADL1C1
+Number of new conflict in state: 1
+state: cacheL1C1_I_x_E_evict
+incoming message: Put_AckL1C1
+cacheL1C1_I
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'stall', 'GetM_Ack_DL1C1': 'stall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'stall', 'InvL1C1': 'stall', 'Put_AckL1C1': 'nonstall', 'Fwd_GetSL1C1': 'stall', 'Fwd_GetML1C1': 'stall'}
+Number of new conflict in state: 0
+state: cacheL1C1_I_x_M_evict
+incoming message: Put_AckL1C1
+cacheL1C1_I
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'stall', 'GetM_Ack_DL1C1': 'stall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'stall', 'InvL1C1': 'stall', 'Put_AckL1C1': 'nonstall', 'Fwd_GetSL1C1': 'stall', 'Fwd_GetML1C1': 'stall'}
+Number of new conflict in state: 0
+state: cacheL1C1_I_x_S_evict
+incoming message: Put_AckL1C1
+cacheL1C1_I
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'stall', 'GetM_Ack_DL1C1': 'stall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'stall', 'InvL1C1': 'stall', 'Put_AckL1C1': 'nonstall', 'Fwd_GetSL1C1': 'stall', 'Fwd_GetML1C1': 'stall'}
+Number of new conflict in state: 0
+state: cacheL1C1_M
+incoming message: Fwd_GetML1C1
+outgoing message: GetM_Ack_DL1C1
+cacheL1C1_I
+incoming message: Fwd_GetSL1C1
+outgoing message: GetS_AckL1C1
+outgoing message: WBL1C1
+cacheL1C1_S
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'stall', 'GetM_Ack_DL1C1': 'stall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'stall', 'InvL1C1': 'stall', 'Put_AckL1C1': 'stall', 'Fwd_GetSL1C1': 'nonstall', 'Fwd_GetML1C1': 'nonstall'}
+Number of new conflict in state: 0
+state: cacheL1C1_M_evict
+incoming message: Fwd_GetML1C1
+outgoing message: GetM_Ack_DL1C1
+cacheL1C1_I_x_M_evict
+incoming message: Fwd_GetSL1C1
+outgoing message: GetS_AckL1C1
+outgoing message: WBL1C1
+cacheL1C1_S_evict
+incoming message: Put_AckL1C1
+cacheL1C1_I
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'stall', 'GetM_Ack_DL1C1': 'stall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'stall', 'InvL1C1': 'stall', 'Put_AckL1C1': 'nonstall', 'Fwd_GetSL1C1': 'nonstall', 'Fwd_GetML1C1': 'nonstall'}
+Number of new conflict in state: 0
+state: cacheL1C1_S
+incoming message: InvL1C1
+outgoing message: Inv_AckL1C1
+cacheL1C1_I
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'stall', 'GetM_Ack_DL1C1': 'stall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'stall', 'InvL1C1': 'nonstall', 'Put_AckL1C1': 'stall', 'Fwd_GetSL1C1': 'stall', 'Fwd_GetML1C1': 'stall'}
+appending GetSL1C1 InvL1C1
+appending GetML1C1 InvL1C1
+appending PutSL1C1 InvL1C1
+appending WBL1C1 InvL1C1
+appending PutML1C1 InvL1C1
+appending PutEL1C1 InvL1C1
+Number of new conflict in state: 6
+state: cacheL1C1_S_evict
+incoming message: InvL1C1
+outgoing message: Inv_AckL1C1
+cacheL1C1_I_x_S_evict
+incoming message: Put_AckL1C1
+cacheL1C1_I
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'stall', 'GetM_Ack_DL1C1': 'stall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'stall', 'InvL1C1': 'nonstall', 'Put_AckL1C1': 'nonstall', 'Fwd_GetSL1C1': 'stall', 'Fwd_GetML1C1': 'stall'}
+Number of new conflict in state: 0
+state: cacheL1C1_S_store
+incoming message: GetM_Ack_ADL1C1
+cacheL1C1_S_store_GetM_Ack_AD
+cacheL1C1_M
+incoming message: GetM_Ack_DL1C1
+cacheL1C1_M
+incoming message: InvL1C1
+outgoing message: Inv_AckL1C1
+cacheL1C1_I_store
+incoming message: Inv_AckL1C1
+cacheL1C1_S_store
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'nonstall', 'GetM_Ack_DL1C1': 'nonstall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'nonstall', 'InvL1C1': 'nonstall', 'Put_AckL1C1': 'stall', 'Fwd_GetSL1C1': 'stall', 'Fwd_GetML1C1': 'stall'}
+Number of new conflict in state: 0
+state: cacheL1C1_S_store_GetM_Ack_AD
+incoming message: Inv_AckL1C1
+cacheL1C1_M
+cacheL1C1_S_store_GetM_Ack_AD
+finished messages for this state
+all messages:
+{'GetSL1C1': 'stall', 'GetML1C1': 'stall', 'PutSL1C1': 'stall', 'Inv_AckL1C1': 'nonstall', 'GetM_Ack_DL1C1': 'stall', 'GetS_AckL1C1': 'stall', 'WBL1C1': 'stall', 'PutML1C1': 'stall', 'PutEL1C1': 'stall', 'GetM_Ack_ADL1C1': 'stall', 'InvL1C1': 'stall', 'Put_AckL1C1': 'stall', 'Fwd_GetSL1C1': 'stall', 'Fwd_GetML1C1': 'stall'}
+Number of new conflict in state: 0
+original conflicts: 75
+----------Creating graph------------------
+GetSL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'Put_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'Inv_AckL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1']
+GetML1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'Put_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'Inv_AckL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1']
+PutSL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'Put_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'Inv_AckL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1']
+Inv_AckL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'Put_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'GetSL1C1', 'GetML1C1', 'PutSL1C1', 'WBL1C1', 'PutML1C1', 'PutEL1C1', 'InvL1C1', 'GetM_Ack_ADL1C1']
+GetM_Ack_DL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'Put_AckL1C1', 'GetSL1C1', 'GetML1C1', 'PutSL1C1', 'Inv_AckL1C1', 'WBL1C1', 'PutML1C1', 'PutEL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1', 'GetS_AckL1C1']
+GetS_AckL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'Put_AckL1C1', 'GetSL1C1', 'GetML1C1', 'PutSL1C1', 'Inv_AckL1C1', 'WBL1C1', 'PutML1C1', 'PutEL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1', 'GetM_Ack_DL1C1']
+WBL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'Put_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'Inv_AckL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1']
+PutML1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'Put_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'Inv_AckL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1']
+PutEL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'Put_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'Inv_AckL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1']
+GetM_Ack_ADL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'Put_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'GetSL1C1', 'GetML1C1', 'PutSL1C1', 'WBL1C1', 'PutML1C1', 'PutEL1C1', 'InvL1C1', 'Inv_AckL1C1']
+InvL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'Put_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'Inv_AckL1C1', 'GetM_Ack_ADL1C1', 'GetSL1C1', 'GetML1C1', 'PutSL1C1', 'WBL1C1', 'PutML1C1', 'PutEL1C1']
+Put_AckL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'GetSL1C1', 'GetML1C1', 'PutSL1C1', 'Inv_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'WBL1C1', 'PutML1C1', 'PutEL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1']
+Fwd_GetSL1C1 ['GetSL1C1', 'GetML1C1', 'PutSL1C1', 'Inv_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'WBL1C1', 'PutML1C1', 'PutEL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1', 'Put_AckL1C1']
+Fwd_GetML1C1 ['GetSL1C1', 'GetML1C1', 'PutSL1C1', 'Inv_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'WBL1C1', 'PutML1C1', 'PutEL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1', 'Put_AckL1C1']
+----------Network Assignment------------------
+Number of networks needed:  8
+Messaages in network 0: ['Inv_AckL1C1']
+Messaages in network 1: ['GetM_Ack_DL1C1']
+Messaages in network 2: ['GetS_AckL1C1']
+Messaages in network 3: ['GetM_Ack_ADL1C1']
+Messaages in network 4: ['InvL1C1']
+Messaages in network 5: ['Put_AckL1C1']
+Messaages in network 6: ['Fwd_GetSL1C1', 'Fwd_GetML1C1']
+Messaages in network 7: ['GetSL1C1', 'GetML1C1', 'PutSL1C1', 'WBL1C1', 'PutML1C1', 'PutEL1C1']
+
+INCOMING ['Fwd_GetML1C1', 'Fwd_GetSL1C1', 'Put_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'GetM_Ack_ADL1C1', 'Inv_AckL1C1', 'InvL1C1']
+OUTGOING ['GetM_Ack_DL1C1', 'GetS_AckL1C1', 'WBL1C1', 'Inv_AckL1C1', 'GetSL1C1', 'GetML1C1', 'PutSL1C1', 'PutML1C1', 'PutEL1C1']
+BOTH
+Inv_AckL1C1
+GetM_Ack_DL1C1
+GetS_AckL1C1
+
+
+omitting incoming/outgoing non-conflicts: 27 conflicts left
+newConflicts Length 27
+start node: cacheL1C1_E
+cacheL1C1_E
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+POSSIBLE for cacheL1C1_E: {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+current msgs for cacheL1C1_E: {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+next node: cacheL1C1_I
+next node: cacheL1C1_S
+dict_keys(['InvL1C1'])
+nonstall for state cacheL1C1_E: {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+stall for state cacheL1C1_E: {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+start node: cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+POSSIBLE for cacheL1C1_I: set()
+current msgs for cacheL1C1_I: set()
+nonstall for state cacheL1C1_I: set()
+stall for state cacheL1C1_I: set()
+start node: cacheL1C1_S
+cacheL1C1_S
+base case
+dict_keys(['InvL1C1'])
+returning {'InvL1C1'}
+POSSIBLE for cacheL1C1_S: {'InvL1C1'}
+current msgs for cacheL1C1_S: {'InvL1C1'}
+next node: cacheL1C1_I
+nonstall for state cacheL1C1_S: {'InvL1C1'}
+stall for state cacheL1C1_S: {'InvL1C1'}
+start node: cacheL1C1_E_evict
+cacheL1C1_E_evict
+NEXT state cacheL1C1_I_x_E_evict
+cacheL1C1_I_x_E_evict
+NEXT state cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+returning set()
+NEXT state cacheL1C1_S_evict
+cacheL1C1_S_evict
+NEXT state cacheL1C1_I_x_S_evict
+cacheL1C1_I_x_S_evict
+NEXT state cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+returning set()
+NEXT state cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+returning {'Put_AckL1C1'}
+ADDING Put_AckL1C1
+NEXT state cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+returning {'Put_AckL1C1', 'InvL1C1'}
+POSSIBLE for cacheL1C1_E_evict: {'Put_AckL1C1', 'InvL1C1'}
+current msgs for cacheL1C1_E_evict: {'Fwd_GetML1C1', 'Put_AckL1C1', 'Fwd_GetSL1C1'}
+next node: cacheL1C1_I_x_E_evict
+dict_keys(['Put_AckL1C1'])
+REMOVE Put_AckL1C1
+next node: cacheL1C1_S_evict
+dict_keys(['InvL1C1'])
+dict_keys(['Put_AckL1C1'])
+next node: cacheL1C1_I
+nonstall for state cacheL1C1_E_evict: {'Fwd_GetML1C1', 'Put_AckL1C1', 'Fwd_GetSL1C1'}
+stall for state cacheL1C1_E_evict: {'InvL1C1'}
+True conflict InvL1C1 Fwd_GetML1C1
+True conflict InvL1C1 Put_AckL1C1
+True conflict InvL1C1 Fwd_GetSL1C1
+start node: cacheL1C1_I_x_E_evict
+cacheL1C1_I_x_E_evict
+NEXT state cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+returning set()
+POSSIBLE for cacheL1C1_I_x_E_evict: set()
+current msgs for cacheL1C1_I_x_E_evict: {'Put_AckL1C1'}
+next node: cacheL1C1_I
+nonstall for state cacheL1C1_I_x_E_evict: {'Put_AckL1C1'}
+stall for state cacheL1C1_I_x_E_evict: set()
+start node: cacheL1C1_S_evict
+cacheL1C1_S_evict
+NEXT state cacheL1C1_I_x_S_evict
+cacheL1C1_I_x_S_evict
+NEXT state cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+returning set()
+NEXT state cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+returning {'Put_AckL1C1'}
+POSSIBLE for cacheL1C1_S_evict: {'Put_AckL1C1'}
+current msgs for cacheL1C1_S_evict: {'InvL1C1', 'Put_AckL1C1'}
+next node: cacheL1C1_I_x_S_evict
+dict_keys(['Put_AckL1C1'])
+REMOVE Put_AckL1C1
+next node: cacheL1C1_I
+nonstall for state cacheL1C1_S_evict: {'InvL1C1', 'Put_AckL1C1'}
+stall for state cacheL1C1_S_evict: set()
+start node: cacheL1C1_I_load
+cacheL1C1_I_load
+NEXT state cacheL1C1_E
+cacheL1C1_E
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Fwd_GetSL1C1
+NEXT state cacheL1C1_S
+cacheL1C1_S
+base case
+dict_keys(['InvL1C1'])
+returning {'InvL1C1'}
+ADDING InvL1C1
+returning {'Fwd_GetML1C1', 'InvL1C1', 'Fwd_GetSL1C1'}
+POSSIBLE for cacheL1C1_I_load: {'Fwd_GetML1C1', 'InvL1C1', 'Fwd_GetSL1C1'}
+current msgs for cacheL1C1_I_load: {'GetS_AckL1C1', 'GetM_Ack_DL1C1'}
+next node: cacheL1C1_E
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+next node: cacheL1C1_S
+dict_keys(['InvL1C1'])
+nonstall for state cacheL1C1_I_load: {'GetS_AckL1C1', 'GetM_Ack_DL1C1'}
+stall for state cacheL1C1_I_load: {'Fwd_GetML1C1', 'InvL1C1', 'Fwd_GetSL1C1'}
+True conflict GetS_AckL1C1 Fwd_GetML1C1
+True conflict GetS_AckL1C1 InvL1C1
+True conflict GetS_AckL1C1 Fwd_GetSL1C1
+True conflict GetM_Ack_DL1C1 Fwd_GetML1C1
+True conflict GetM_Ack_DL1C1 InvL1C1
+True conflict GetM_Ack_DL1C1 Fwd_GetSL1C1
+start node: cacheL1C1_I_store
+cacheL1C1_I_store
+NEXT state cacheL1C1_M
+cacheL1C1_M
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Fwd_GetSL1C1
+NEXT state cacheL1C1_M
+cacheL1C1_M
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Fwd_GetSL1C1
+NEXT state cacheL1C1_I_store_GetM_Ack_AD
+cacheL1C1_I_store_GetM_Ack_AD
+NEXT state cacheL1C1_M
+cacheL1C1_M
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Fwd_GetSL1C1
+ADDING dict_keys(['Inv_AckL1C1'])
+returning {'Fwd_GetML1C1', 'Inv_AckL1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Inv_AckL1C1
+ADDING Fwd_GetSL1C1
+ADDING dict_keys(['Inv_AckL1C1'])
+returning {'Fwd_GetML1C1', 'Inv_AckL1C1', 'Fwd_GetSL1C1'}
+POSSIBLE for cacheL1C1_I_store: {'Fwd_GetML1C1', 'Inv_AckL1C1', 'Fwd_GetSL1C1'}
+current msgs for cacheL1C1_I_store: {'Inv_AckL1C1', 'GetM_Ack_ADL1C1', 'GetM_Ack_DL1C1'}
+next node: cacheL1C1_M
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+next node: cacheL1C1_I_store_GetM_Ack_AD
+dict_keys(['Inv_AckL1C1'])
+REMOVE Inv_AckL1C1
+dict_keys(['Inv_AckL1C1'])
+next node: cacheL1C1_I_store
+dict_keys(['GetM_Ack_ADL1C1', 'GetM_Ack_DL1C1'])
+dict_keys(['GetM_Ack_ADL1C1', 'GetM_Ack_DL1C1'])
+dict_keys(['GetM_Ack_ADL1C1'])
+dict_keys(['Inv_AckL1C1'])
+nonstall for state cacheL1C1_I_store: {'Inv_AckL1C1', 'GetM_Ack_ADL1C1', 'GetM_Ack_DL1C1'}
+stall for state cacheL1C1_I_store: {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+True conflict Inv_AckL1C1 Fwd_GetML1C1
+True conflict Inv_AckL1C1 Fwd_GetSL1C1
+True conflict GetM_Ack_ADL1C1 Fwd_GetML1C1
+True conflict GetM_Ack_ADL1C1 Fwd_GetSL1C1
+True conflict GetM_Ack_DL1C1 Fwd_GetML1C1
+True conflict GetM_Ack_DL1C1 Fwd_GetSL1C1
+start node: cacheL1C1_M
+cacheL1C1_M
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+POSSIBLE for cacheL1C1_M: {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+current msgs for cacheL1C1_M: {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+next node: cacheL1C1_I
+next node: cacheL1C1_S
+dict_keys(['InvL1C1'])
+nonstall for state cacheL1C1_M: {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+stall for state cacheL1C1_M: {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+start node: cacheL1C1_I_store_GetM_Ack_AD
+cacheL1C1_I_store_GetM_Ack_AD
+NEXT state cacheL1C1_M
+cacheL1C1_M
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Fwd_GetSL1C1
+ADDING dict_keys(['Inv_AckL1C1'])
+returning {'Fwd_GetML1C1', 'Inv_AckL1C1', 'Fwd_GetSL1C1'}
+POSSIBLE for cacheL1C1_I_store_GetM_Ack_AD: {'Fwd_GetML1C1', 'Inv_AckL1C1', 'Fwd_GetSL1C1'}
+current msgs for cacheL1C1_I_store_GetM_Ack_AD: {'Inv_AckL1C1'}
+next node: cacheL1C1_M
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+next node: cacheL1C1_I_store_GetM_Ack_AD
+dict_keys(['Inv_AckL1C1'])
+REMOVE Inv_AckL1C1
+dict_keys(['Inv_AckL1C1'])
+nonstall for state cacheL1C1_I_store_GetM_Ack_AD: {'Inv_AckL1C1'}
+stall for state cacheL1C1_I_store_GetM_Ack_AD: {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+True conflict Inv_AckL1C1 Fwd_GetML1C1
+True conflict Inv_AckL1C1 Fwd_GetSL1C1
+start node: cacheL1C1_I_x_M_evict
+cacheL1C1_I_x_M_evict
+NEXT state cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+returning set()
+POSSIBLE for cacheL1C1_I_x_M_evict: set()
+current msgs for cacheL1C1_I_x_M_evict: {'Put_AckL1C1'}
+next node: cacheL1C1_I
+nonstall for state cacheL1C1_I_x_M_evict: {'Put_AckL1C1'}
+stall for state cacheL1C1_I_x_M_evict: set()
+start node: cacheL1C1_I_x_S_evict
+cacheL1C1_I_x_S_evict
+NEXT state cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+returning set()
+POSSIBLE for cacheL1C1_I_x_S_evict: set()
+current msgs for cacheL1C1_I_x_S_evict: {'Put_AckL1C1'}
+next node: cacheL1C1_I
+nonstall for state cacheL1C1_I_x_S_evict: {'Put_AckL1C1'}
+stall for state cacheL1C1_I_x_S_evict: set()
+start node: cacheL1C1_M_evict
+cacheL1C1_M_evict
+NEXT state cacheL1C1_I_x_M_evict
+cacheL1C1_I_x_M_evict
+NEXT state cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+returning set()
+NEXT state cacheL1C1_S_evict
+cacheL1C1_S_evict
+NEXT state cacheL1C1_I_x_S_evict
+cacheL1C1_I_x_S_evict
+NEXT state cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+returning set()
+NEXT state cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+returning {'Put_AckL1C1'}
+ADDING Put_AckL1C1
+NEXT state cacheL1C1_I
+cacheL1C1_I
+base case
+returning set()
+returning {'Put_AckL1C1', 'InvL1C1'}
+POSSIBLE for cacheL1C1_M_evict: {'Put_AckL1C1', 'InvL1C1'}
+current msgs for cacheL1C1_M_evict: {'Fwd_GetML1C1', 'Put_AckL1C1', 'Fwd_GetSL1C1'}
+next node: cacheL1C1_I_x_M_evict
+dict_keys(['Put_AckL1C1'])
+REMOVE Put_AckL1C1
+next node: cacheL1C1_S_evict
+dict_keys(['InvL1C1'])
+dict_keys(['Put_AckL1C1'])
+next node: cacheL1C1_I
+nonstall for state cacheL1C1_M_evict: {'Fwd_GetML1C1', 'Put_AckL1C1', 'Fwd_GetSL1C1'}
+stall for state cacheL1C1_M_evict: {'InvL1C1'}
+True conflict InvL1C1 Fwd_GetML1C1
+True conflict InvL1C1 Put_AckL1C1
+True conflict InvL1C1 Fwd_GetSL1C1
+start node: cacheL1C1_S_store
+cacheL1C1_S_store
+NEXT state cacheL1C1_S_store_GetM_Ack_AD
+cacheL1C1_S_store_GetM_Ack_AD
+NEXT state cacheL1C1_M
+cacheL1C1_M
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Fwd_GetSL1C1
+ADDING dict_keys(['Inv_AckL1C1'])
+returning {'Fwd_GetML1C1', 'Inv_AckL1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Inv_AckL1C1
+ADDING Fwd_GetSL1C1
+NEXT state cacheL1C1_M
+cacheL1C1_M
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Fwd_GetSL1C1
+NEXT state cacheL1C1_M
+cacheL1C1_M
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Fwd_GetSL1C1
+NEXT state cacheL1C1_I_store
+cacheL1C1_I_store
+NEXT state cacheL1C1_M
+cacheL1C1_M
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Fwd_GetSL1C1
+NEXT state cacheL1C1_M
+cacheL1C1_M
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Fwd_GetSL1C1
+NEXT state cacheL1C1_I_store_GetM_Ack_AD
+cacheL1C1_I_store_GetM_Ack_AD
+NEXT state cacheL1C1_M
+cacheL1C1_M
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Fwd_GetSL1C1
+ADDING dict_keys(['Inv_AckL1C1'])
+returning {'Fwd_GetML1C1', 'Inv_AckL1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Inv_AckL1C1
+ADDING Fwd_GetSL1C1
+ADDING dict_keys(['Inv_AckL1C1'])
+returning {'Fwd_GetML1C1', 'Inv_AckL1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Inv_AckL1C1
+ADDING Fwd_GetSL1C1
+ADDING dict_keys(['Inv_AckL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1', 'Inv_AckL1C1', 'GetM_Ack_ADL1C1', 'GetM_Ack_DL1C1'}
+POSSIBLE for cacheL1C1_S_store: {'Fwd_GetML1C1', 'Fwd_GetSL1C1', 'Inv_AckL1C1', 'GetM_Ack_ADL1C1', 'GetM_Ack_DL1C1'}
+current msgs for cacheL1C1_S_store: {'Inv_AckL1C1', 'InvL1C1', 'GetM_Ack_ADL1C1', 'GetM_Ack_DL1C1'}
+next node: cacheL1C1_S_store_GetM_Ack_AD
+dict_keys(['Inv_AckL1C1'])
+REMOVE Inv_AckL1C1
+dict_keys(['Inv_AckL1C1'])
+next node: cacheL1C1_M
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+next node: cacheL1C1_I_store
+dict_keys(['GetM_Ack_ADL1C1', 'GetM_Ack_DL1C1'])
+REMOVE GetM_Ack_ADL1C1
+REMOVE GetM_Ack_DL1C1
+dict_keys(['GetM_Ack_ADL1C1', 'GetM_Ack_DL1C1'])
+dict_keys(['GetM_Ack_ADL1C1'])
+dict_keys(['Inv_AckL1C1'])
+next node: cacheL1C1_S_store
+dict_keys(['GetM_Ack_ADL1C1'])
+dict_keys(['GetM_Ack_ADL1C1', 'GetM_Ack_DL1C1'])
+dict_keys(['GetM_Ack_ADL1C1', 'GetM_Ack_DL1C1'])
+dict_keys(['InvL1C1'])
+dict_keys(['Inv_AckL1C1'])
+nonstall for state cacheL1C1_S_store: {'Inv_AckL1C1', 'InvL1C1', 'GetM_Ack_ADL1C1', 'GetM_Ack_DL1C1'}
+stall for state cacheL1C1_S_store: {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+True conflict Inv_AckL1C1 Fwd_GetML1C1
+True conflict Inv_AckL1C1 Fwd_GetSL1C1
+True conflict InvL1C1 Fwd_GetML1C1
+True conflict InvL1C1 Fwd_GetSL1C1
+True conflict GetM_Ack_ADL1C1 Fwd_GetML1C1
+True conflict GetM_Ack_ADL1C1 Fwd_GetSL1C1
+True conflict GetM_Ack_DL1C1 Fwd_GetML1C1
+True conflict GetM_Ack_DL1C1 Fwd_GetSL1C1
+start node: cacheL1C1_S_store_GetM_Ack_AD
+cacheL1C1_S_store_GetM_Ack_AD
+NEXT state cacheL1C1_M
+cacheL1C1_M
+base case
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+returning {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+ADDING Fwd_GetML1C1
+ADDING Fwd_GetSL1C1
+ADDING dict_keys(['Inv_AckL1C1'])
+returning {'Fwd_GetML1C1', 'Inv_AckL1C1', 'Fwd_GetSL1C1'}
+POSSIBLE for cacheL1C1_S_store_GetM_Ack_AD: {'Fwd_GetML1C1', 'Inv_AckL1C1', 'Fwd_GetSL1C1'}
+current msgs for cacheL1C1_S_store_GetM_Ack_AD: {'Inv_AckL1C1'}
+next node: cacheL1C1_M
+dict_keys(['Fwd_GetML1C1'])
+dict_keys(['Fwd_GetSL1C1'])
+next node: cacheL1C1_S_store_GetM_Ack_AD
+dict_keys(['Inv_AckL1C1'])
+REMOVE Inv_AckL1C1
+dict_keys(['Inv_AckL1C1'])
+nonstall for state cacheL1C1_S_store_GetM_Ack_AD: {'Inv_AckL1C1'}
+stall for state cacheL1C1_S_store_GetM_Ack_AD: {'Fwd_GetML1C1', 'Fwd_GetSL1C1'}
+True conflict Inv_AckL1C1 Fwd_GetML1C1
+True conflict Inv_AckL1C1 Fwd_GetSL1C1
+{('Inv_AckL1C1', 'Fwd_GetSL1C1'): False, ('Inv_AckL1C1', 'Fwd_GetML1C1'): False, ('GetM_Ack_DL1C1', 'Fwd_GetSL1C1'): False, ('GetM_Ack_DL1C1', 'Fwd_GetML1C1'): False, ('GetS_AckL1C1', 'Fwd_GetSL1C1'): False, ('GetS_AckL1C1', 'Fwd_GetML1C1'): False, ('GetM_Ack_ADL1C1', 'Fwd_GetSL1C1'): False, ('GetM_Ack_ADL1C1', 'Fwd_GetML1C1'): False, ('InvL1C1', 'Fwd_GetSL1C1'): False, ('InvL1C1', 'Fwd_GetML1C1'): False, ('Put_AckL1C1', 'Fwd_GetSL1C1'): True, ('Put_AckL1C1', 'Fwd_GetML1C1'): True, ('Inv_AckL1C1', 'Put_AckL1C1'): True, ('GetM_Ack_DL1C1', 'Put_AckL1C1'): True, ('GetS_AckL1C1', 'Put_AckL1C1'): True, ('GetM_Ack_ADL1C1', 'Put_AckL1C1'): True, ('InvL1C1', 'Put_AckL1C1'): False, ('Inv_AckL1C1', 'GetM_Ack_DL1C1'): True, ('Inv_AckL1C1', 'GetS_AckL1C1'): True, ('GetM_Ack_DL1C1', 'GetM_Ack_ADL1C1'): True, ('GetM_Ack_DL1C1', 'InvL1C1'): False, ('GetS_AckL1C1', 'GetM_Ack_ADL1C1'): True, ('GetS_AckL1C1', 'InvL1C1'): False, ('Inv_AckL1C1', 'InvL1C1'): True, ('GetM_Ack_DL1C1', 'GetS_AckL1C1'): True, ('GetM_Ack_ADL1C1', 'InvL1C1'): True, ('Inv_AckL1C1', 'GetM_Ack_ADL1C1'): True}
+Final number of conflicts: 13
+----------Creating graph------------------
+Fwd_GetML1C1 ['Inv_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1']
+Fwd_GetSL1C1 ['Inv_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1', 'GetM_Ack_ADL1C1', 'InvL1C1']
+Put_AckL1C1 ['InvL1C1']
+GetM_Ack_DL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'InvL1C1']
+GetS_AckL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'InvL1C1']
+GetM_Ack_ADL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1']
+Inv_AckL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1']
+InvL1C1 ['Fwd_GetSL1C1', 'Fwd_GetML1C1', 'Put_AckL1C1', 'GetM_Ack_DL1C1', 'GetS_AckL1C1']
+----------Network Assignment------------------
+Number of networks needed:  3
+Messaages in network 0: ['Fwd_GetML1C1', 'Fwd_GetSL1C1', 'Put_AckL1C1']
+Messaages in network 1: ['InvL1C1', 'GetM_Ack_ADL1C1', 'Inv_AckL1C1']
+Messaages in network 2: ['GetM_Ack_DL1C1', 'GetS_AckL1C1']
+Outgoing Network
+['GetM_Ack_DL1C1', 'GetS_AckL1C1', 'WBL1C1', 'Inv_AckL1C1', 'GetSL1C1', 'GetML1C1', 'PutSL1C1', 'PutML1C1', 'PutEL1C1']
